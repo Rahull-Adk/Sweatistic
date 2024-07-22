@@ -3,10 +3,18 @@ import cors from "cors";
 import dotenv from "dotenv";
 import cookieParser from "cookie-parser";
 import connectDB from "./db/index.js";
+import { v2 as cloudinary } from "cloudinary";
 import userRouter from "./routes/auth.route.js";
 const app = express();
 const port = process.env.PORT || 3000;
 dotenv.config({ path: "./.env" });
+
+// cloudinary config
+cloudinary.config({
+  cloud_name: process.env.CLOUDINARY_CLOUD_NAME,
+  api_key: process.env.CLOUDINARY_API_KEY,
+  api_secret: process.env.CLOUDINARY_API_SECRET,
+});
 
 // middlewares
 app.use(express.json());

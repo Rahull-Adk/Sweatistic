@@ -27,18 +27,24 @@ const userSchema = new Schema(
     },
     age: {
       type: Number,
+      required: true,
     },
     gender: {
       type: String,
+      required: true,
+      enum: ["male", "female"],
     },
     avatar: {
       type: String,
+      required: true,
     },
     height: {
       type: Number,
+      required: true,
     },
     weight: {
       type: Number,
+      required: true,
     },
     goal: {
       type: String,
